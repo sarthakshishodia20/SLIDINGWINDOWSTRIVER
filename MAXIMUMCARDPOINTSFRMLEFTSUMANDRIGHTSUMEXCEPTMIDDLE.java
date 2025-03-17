@@ -12,7 +12,7 @@ class Solution {
         for(int i=k-1;i>=0;i--){
             lSum=lSum-arr[i];
             rSum+=arr[rIndex];
-            maxSum=Math.max(lSum,rSum);
+            maxSum=Math.max(lSum+rSum,maxSum);
             rIndex--;
         }
         return maxSum;
