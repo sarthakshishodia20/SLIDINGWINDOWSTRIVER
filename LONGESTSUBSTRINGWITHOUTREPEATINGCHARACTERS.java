@@ -16,3 +16,35 @@ public class Solution {
         return len;
     }
 }
+
+
+// GFG
+// User function Template for Java
+
+class Solution {
+    public int longestUniqueSubstr(String s) {
+        // code here
+        HashMap<Character,Integer> map=new HashMap<>();
+        int maxLen=0;
+        int i=0;
+        int j=0;
+        int n=s.length();
+        while(j<n){
+            char ch=s.charAt(j);
+            map.put(ch,map.getOrDefault(ch,0)+1);
+            while(map.get(ch)>1){
+                map.put(s.charAt(i),map.get(s.charAt(i))-1);
+                if(map.get(s.charAt(i))==0){
+                    map.remove(s.charAt(i));
+                    
+                }
+                i++;
+            }
+            if(map.size()==(j-i+1)){
+                maxLen=Math.max(maxLen,(j-i+1));
+            }
+            j++;
+        }
+        return maxLen;
+    }
+}
